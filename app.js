@@ -20,10 +20,10 @@ function addNewTask() {
         var li = document.createElement("li");    
         li.innerHTML = `<div>
                             <div class="d-flex justify-content-end">
-                                <i class="bi bi-pencil me-3 font-25" id="taskEdit" onclick="editTask(this)"></i>
-                                <i class="bi bi-x-lg font-25" id="taskDelete" onclick="deleteTask(this)"></i>                                
+                                <i class="bi bi-pencil me-3 font-25" onclick="editTask(this)"></i>
+                                <i class="bi bi-x-lg font-25" onclick="deleteTask(this)"></i>                                
                             </div>
-                            <div class="d-flex w-100 justify-content-between" id="editBox">
+                            <div class="d-flex w-100 justify-content-between">
                                 <input type="checkbox" id="cbox">
                                 <label class="ms-2" id="editBox" style="width: 90%;" contenteditable="true">${taskName} </br><span class="text-secondary" id="editTime" contenteditable="true">${taskTime}</span></label>                                
                             </div>                            
@@ -37,6 +37,10 @@ taskBtn.addEventListener("click", addNewTask);
 let deleteTask = (e) => {
     e.parentElement.parentElement.parentElement.remove();    
 };
+
+let editTask = (e) => {
+    document.getElementById("editBox").focus();
+}
 
 function deleteTasks() {    
     taskList.innerHTML = "";
