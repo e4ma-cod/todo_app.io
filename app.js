@@ -1,6 +1,4 @@
 const taskBtn = document.getElementById("taskBtn");
-const editBtn = document.getElementById("taskEdit");
-const deleteBtn = document.getElementById("taskDelete");
 const taskDeleteBtn = document.getElementById('deleteBtn');
 let newDate = document.getElementById("date");
 
@@ -19,17 +17,16 @@ function addNewTask() {
     });
 
     taskArr.forEach(function(item) {
-        let li = document.createElement("li");    
+        var li = document.createElement("li");    
         li.innerHTML = `<div>
                             <div class="d-flex justify-content-end">
                                 <i class="bi bi-pencil me-3 font-25" id="taskEdit" onclick="editTask(this)"></i>
                                 <i class="bi bi-x-lg font-25" id="taskDelete" onclick="deleteTask(this)"></i>                                
                             </div>
-                            <div class="d-flex w-100 justify-content-between">
+                            <div class="d-flex w-100 justify-content-between" id="editBox">
                                 <input type="checkbox" id="cbox">
-                                <label for="cbox" class="ms-2 editBox" style="width: 90%;">${taskName} </br><span class="text-secondary">${taskTime}</span></label>                                
-                            </div>
-                            
+                                <label class="ms-2" id="editBox" style="width: 90%;" contenteditable="true">${taskName} </br><span class="text-secondary" id="editTime" contenteditable="true">${taskTime}</span></label>                                
+                            </div>                            
                         </div>`;
         li.classList.add("task-item");        
         taskList.appendChild(li);    
@@ -46,4 +43,3 @@ function deleteTasks() {
     return taskArr;    
 }
 taskDeleteBtn.addEventListener("click", deleteTasks);
-
