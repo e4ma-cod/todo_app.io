@@ -82,15 +82,15 @@ function updateUI() {
 };
 
 function addNewTask() {
-    let taskName = tName.value;
-    let taskTime = tTime.value;
+    var taskName = tName.value;
+    var taskTime = tTime.value;
 
     taskArr.push({
         task: taskName,
         time: taskTime,
         id: math.floor((date.now())/1000),
     });
-    updateUI();
+    return updateUI();
 }    
 taskBtn.addEventListener("click", addNewTask);
 
